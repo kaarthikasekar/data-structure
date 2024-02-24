@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+void insert(int *arr,int n){
+  int element,pos,i;
+  printf("Enter the position at which you want to insert the element: ");
+  scanf("%d",&pos);
+  printf("Enter the element you want to insert: ");
+  scanf("%d",&element);
+ 
+  for(i=n;i>=pos;i--){
+    *(arr+i) = *(arr+i-1);
+  }
+  *(arr+pos-1) = element;
+  n++;
+  for(i=0;i<n;i++){
+    printf("%d ",*(arr+i));
+  }
+}
+
+void deleteEle(int *arr,int n){
+  int pos,i;
+  printf("\nEnter the position at which you want to delete the element: ");
+  scanf("%d",&pos);
+  for(int i=pos-1;i<n;i++){
+    *(arr+i) = *(arr+i+1);
+  }
+  n--;
+  for(i=0;i<=n;i++){
+    printf("%d ",*(arr+i));
+  }
+}
+
+int main(void) {
+  int size;
+  int *arr;
+  printf("Enter the size of the array: ");
+  scanf("%d",&size);
+  arr = (int*)malloc(size*sizeof(int));
+  printf("Enter the elements of the array: ");
+  for(int i=0;i<size;i++){
+    scanf("%d",(arr+i));
+  }
+  
+  insert(arr,size);
+  deleteEle(arr,size);
+  return 0;
+}
