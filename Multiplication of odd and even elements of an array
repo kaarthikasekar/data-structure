@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+  int size,oddPro=1,evenPro=1;
+  int *arr;
+  printf("Enter the size of the array");
+  scanf("%d",&size);
+  arr = (int*)malloc(sizeof(int) * size);
+  printf("Enter the array elements");
+  for(int i=0 ; i<size;i++){
+    scanf("%d" , (arr+i));
+  }
+  for(int i=0 ; i<size;i++){
+    if(*(arr+i)%2 == 0){
+      evenPro *= *(arr+i);
+    }
+    else{
+      oddPro *= *(arr+i);
+    }
+  }
+  printf("Product of Even numbers : %d\n",evenPro);
+  printf("Product of Odd numbers : %d\n",oddPro);
+  return 0;
+}
