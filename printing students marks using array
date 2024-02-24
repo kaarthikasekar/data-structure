@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+int main(void) {
+  int noOfStudents,noOfSubjects = 5,fail = 0; 
+  int *arr;
+  printf("Enter the number of students : ");
+  scanf("%d",&noOfStudents);
+  arr = (int *)malloc(noOfSubjects*sizeof(int));
+  for (int i=0;i<noOfStudents;i++){
+    for(int j=0;j<noOfSubjects;j++){
+      printf("Enter the mark of student %d in subject %d : ",i+1,j+1);
+      scanf("%d",(arr+j));
+      if(*(arr+j)<50){
+        fail++;
+      }
+    }
+    if(fail){
+      printf("\nStudent %d has failed in %d subjects\n\n",i+1,fail);
+    }
+    else{
+      printf("\nStudent %d has passed in all subjects\n\n",i+1);
+    }
+    fail = 0;
+  }
+  
+  return 0;
+}
