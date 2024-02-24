@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+  int size,oddCount=0,eveCount=0;
+  int *arr;
+  printf("Enter the size of the array");
+  scanf("%d",&size);
+  arr = (int*)malloc(sizeof(int) * size);
+  printf("Enter the array elements");
+  for(int i=0 ; i<size;i++){
+    scanf("%d" , (arr+i));
+  }
+  for(int i=0 ; i<size;i++){
+    if(*(arr+i)%2 == 0){
+      eveCount++;
+    }
+    else{
+      oddCount++;
+    }
+  }
+  printf("No of Even numbers : %d\n",eveCount);
+  printf("No of Odd numbers : %d\n",oddCount);
+  return 0;
+}
