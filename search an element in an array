@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+  int size,searchElement,found=0,i;
+  int *arr;
+  printf("Enter the size of the array: ");
+  scanf("%d",&size);
+  arr = (int*)malloc(size*sizeof(int));
+  printf("Enter the elements of the array: ");
+  for( i=0;i<size;i++){
+    scanf("%d" ,(arr+i));
+  }
+  printf("Enter the element to be searched: ");
+  scanf("%d",&searchElement);
+  for( i=0;i<size;i++){
+    if(*(arr+i) == searchElement){
+      found = 1;
+      break;
+    }
+  }
+
+  if(found){
+    printf("Element found at %dth position" ,i+1 );
+  }
+  else{
+    printf("Element not found");
+  }
+  return 0;
+}
